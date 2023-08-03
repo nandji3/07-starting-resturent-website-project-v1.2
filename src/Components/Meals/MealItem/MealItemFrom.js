@@ -9,15 +9,10 @@ const MealItemForm = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-
         const enteredQuantity = quantityInputRef.current.value;
         const enteredQuantityNumber = +enteredQuantity;
         //when we extract value from the input field it is in string format because of type ='number' so nedd to convert string into number by adding only plus sign infont of that value
-        if (
-            enteredQuantity.trim().length === 0 ||
-            enteredQuantityNumber < 1 ||
-            enteredQuantityNumber > 5
-        ) {
+        if (enteredQuantity.trim().length === 0 || enteredQuantityNumber < 1 || enteredQuantityNumber > 5) {
             setQuantityIsValid(false);
             return;     //because we not want to submit data in this case
         }

@@ -9,6 +9,7 @@ const Cart = () => {
     const cartCTX = useContext(CartContext)
 
     const totalAmount = `$${cartCTX.totalAmount.toFixed(2)}`;
+
     const hasItems = cartCTX.items.length > 0; //if items present then return true else false
 
     const cartItemRemoveHandler = (id) => {

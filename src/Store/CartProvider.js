@@ -7,12 +7,13 @@ const defaultCartState = {
 }
 
 const cartReducer = (state, action) => {
+    console.log(state.items)
+    console.log(action.item)
+
     if (action.type === "ADD") {
 
-        //Processe for adding new item and increse the quantity of exising item
-        const updatedTotalAmount =
-            state.totalAmount + action.item.price * action.item.quantity;
-        //Processe for adding new item and increse the quantity of exising item
+        const updatedTotalAmount = state.totalAmount + action.item.price * action.item.quantity;
+
         const existingCartItemIndex = state.items.findIndex((item) => (item.id === action.item.id));
 
         const existingCartItem = state.items[existingCartItemIndex];
@@ -25,7 +26,7 @@ const cartReducer = (state, action) => {
             updatedItems[existingCartItemIndex] = updatedItem;  //update existing index data
         }
         else {
-            updatedItems = state.items.concat(action.item);  //this give all updatedItems in new new copy of array, because .concate() method create a new copy of array after adding new items in oldArray --So we can easily calculate updatedTotalAmount of items.
+            updatedItems = state.items.concat(action.item);  //this give all updatedItems in new copy of array, because .concate() method create a new copy of array after adding new items in oldArray --So we can easily calculate updatedTotalAmount of items.
         }
         return {
             items: updatedItems,

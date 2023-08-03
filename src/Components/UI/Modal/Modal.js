@@ -9,7 +9,7 @@ export const Backdrop = (props) => {
     const cartCTX = useContext(CartContext);
 
     return (
-        <div className={styles.backdrop} onClick={cartCTX.onCloseCart} />
+        <div className={styles.backdrop} onClick={cartCTX.closeCart} />
     )
 }
 
